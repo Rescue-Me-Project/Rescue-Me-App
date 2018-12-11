@@ -28,7 +28,7 @@ This is a template, which lays out a structure for a main project. It can be use
 
 ###  Folders
 
-#### [docs](https://cmdt.github.io/LiveProjectsTemplate/#/page/start)
+#### [docs](https://rescue-me-project.github.io/Rescue-Me-App/)
 
 Holds live wireframes for the project. 
 
