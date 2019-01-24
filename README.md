@@ -1,7 +1,7 @@
 # Rescue-Me-App
 ## Contents
 
-This is our website where we host our wireframes(https://rescue-me-project.github.io/Rescue-Me-App/)
+[This is our website where we host our wireframes](https://rescue-me-project.github.io/Rescue-Me-App/)
 
 ###  Folders
 
