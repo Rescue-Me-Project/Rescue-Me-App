@@ -1,0 +1,24 @@
+<ion-view style="background-color: #272733;" can-swipe-back="false">
+
+    <ion-header-bar class="bar-dark" align-title="center">
+        <h1 class="title">Login</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-header">
+        <h2>New Contact</h2>
+        <ng-form name="vm.formItems">
+            <ion-item>
+              <ion-label>What's your Name?</ion-label>
+                <input type ="text" name="name" ng-change="vm.Change()" ng-model="vm.name" placeholder="Enter Name"></input>
+            </ion-item>
+        </ng-form>
+        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.LogIn()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">Continue</button>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
+        <i class="col-20"></i>
+        <i class="col-20"></i>
+    </ion-footer-bar>
+
+</ion-view>

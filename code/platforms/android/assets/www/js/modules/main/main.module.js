@@ -13,6 +13,11 @@
           url: '/main',
           templateUrl: 'js/modules/main/main.html',
           controller: 'mainCtrl as vm'
+        })
+        .state('login', {
+          url: '/login',
+          templateUrl: 'js/modules/main/login.html',
+          controller: 'loginCtrl as vm'
         });
     });
 })();
