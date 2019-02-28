@@ -21,18 +21,21 @@ console.log("I LIVE!");
         });
         
         vm.name="";
-        vm.age=null;
+        vm.role=null;
         
+        //QRCode Connection is a url
+        //Maybe have the push service send the user object data and receive connection's user data
+
         vm.change = function(){
             console.log("nameChange",vm.name);
-            console.log("ageChange", vm.age);
+            console.log("roleChange",vm.role);
         };
 
         vm.addContact = function addContact(){
 
             var person = {
                 name : vm.name,
-                age : vm.age
+                role: role
             }
             console.log(person);
 

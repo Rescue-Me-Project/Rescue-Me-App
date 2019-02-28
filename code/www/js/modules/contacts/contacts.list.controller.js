@@ -34,11 +34,11 @@
         vm.addContact = function(){
             $state.go('contacts_add');
         }
-
-        vm.switch = function(){
-            $state.go('events_module');
-        }
         
+        vm.switch = function(){
+            $state.go('main');
+        }
+
         vm.contacts = contactsSrvc.getContactsArray();
     }
 })();

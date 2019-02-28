@@ -33,6 +33,11 @@
 
     var user = loginSrvc.getUser();
     
+    vm.switch = function()
+    {
+      $state.go("contacts_module");
+    }
+
     vm.username = user.name;
 
     vm.isRescuer = false;

@@ -7,8 +7,6 @@ angular.module('starter', [
   'ionic',
   'main',
   'contactsjs'
-//  'momentjs', // ADDED used for dates
-//  'eventsjs'  // ADDED our events module
 ])
 
   .run(function ($ionicPlatform, $state, $rootScope) {

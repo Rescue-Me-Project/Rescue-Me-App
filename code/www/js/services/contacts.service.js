@@ -3,19 +3,15 @@
     console.log("contactsSrvc executed");
 
     angular
-        .module('contactsjs')
+        .module('contactsService', [])
         .factory('contactsSrvc', ['uuid',contactsSrvc]);
     
         contactsSrvc.$inject = [
             'uuid',
-            '$q',
-            '$timeout'
         ];
 
     function contactsSrvc(
         uuid,
-        $q,
-        $timeout
     ) {
         
         var service = {
@@ -23,6 +19,11 @@
         };
 
         var contactsLookUp = {};
+        var rescuer = {};
+        var rescuee = {};
+
+        //Add the ability to distinguish between Rescuer and Rescuee
+        //RescueeArray && RescuerArray
 
         service.createContacts = function(person){
             console.log(person);
@@ -30,20 +31,25 @@
             var UUID = uuid.v4();
 
             console.log(UUID);
+            console.log(person.role);
 
             contactsLookUp[UUID] = {
                 UUID : UUID,
                 name: person.name,
-                age: person.age
+                role: role
             };
 
             console.log(contactsLookUp);
         }
 
         service.getContactsArray = function(){
-            //var result = contactsArray;
             var result = [];
             var keys = Object.getOwnPropertyNames(contactsLookUp);
+
+            //if role Rescuer
+            //push to RescuerArray
+            //if role Rescuee
+            //push to RescueeArray
 
             for(var index = 0;index < keys.length;index++)
             {
@@ -57,6 +63,12 @@
         service.getContact = function(UUID){
             return angular.copy(contactsLookUp[UUID]);
         }
+
+        /* Remove Contact Function - Incomplete
+        service.removeContact = function(UUID){
+            return null;
+        }
+        */
         return service;
     }
 })();
