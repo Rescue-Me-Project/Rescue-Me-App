@@ -3,14 +3,16 @@
 
     angular
         .module('main')
-        .controller('loginCtrl', ['uuid', control]);
+        .controller('loginCtrl', control);
 
     control.$inject = [
-        '$state'
+        'loginSrvc',
+        '$state',
     ];
 
     function control(
-        $state
+        loginSrvc,
+        $state,
     ) {
         var vm = angular.extend(this, {
             
@@ -24,18 +26,18 @@
 
         vm.LogIn = function LogIn(){
 
-            var UUID = uuid.v4()
-            
             var user = {
                 name : vm.name,
-                UUID : UUID
-            }
+            };
             
             console.log(user);
 
+            loginSrvc.AddUser(user);
+            
             //Store User Somewhere
-            //App will check if they can find user
             //Will go into main.html if login is success 
+
+            $state.go('main');
         };
 
         /*vm.Check = function Check(){

@@ -12,6 +12,7 @@
     '$sce',
     '$http',
     'pushSrvc',
+    'loginSrvc',
     'uuid'
   ];
 2
@@ -22,12 +23,17 @@
     $sce,
     $http,
     pushSrvc,
+    loginSrvc,
     uuid
   ) {
 
     var vm=angular.extend(this, {
 
     });
+
+    var user = loginSrvc.getUser();
+    
+    vm.username = user.name;
 
     vm.isRescuer = false;
     vm.isRescuee = false;

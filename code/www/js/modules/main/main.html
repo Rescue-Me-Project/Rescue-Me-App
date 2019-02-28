@@ -25,7 +25,7 @@
   </div>
 
   <div id="connected" ng-show="vm.pushConnected===true">
-    <p>Connected.</p>
+    <p>Connected. Hello {{vm.username}}!</p>
     <div id="role-buttons">
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUER}" ng-click="vm.setRescuer(true);">Rescuer</button>
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUEE}" ng-click="vm.setRescuee(true);">Rescuee</button>

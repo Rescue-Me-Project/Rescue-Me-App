@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+    console.log("contactsSrvc executed");
 
     angular
         .module('contactsjs')
@@ -16,13 +17,12 @@
         $q,
         $timeout
     ) {
-        var contactsLookUp = {};
+        
         var service = {
 
         };
-        var contact = {};
-        
-        //var PAUSE_FOR_A_WHILE_MS = 3000;
+
+        var contactsLookUp = {};
 
         service.createContacts = function(person){
             console.log(person);
