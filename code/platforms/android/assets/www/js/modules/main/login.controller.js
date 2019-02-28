@@ -38,13 +38,13 @@
             //Will go into main.html if login is success 
         };
 
-        vm.Check() = function Check(){
+        /*vm.Check = function Check(){
 
             //Check if there are user details stored locally
             //if success
             //$state.go('main');
             //else
             //goes to login page
-        }
+        }*/
     }
 })();
