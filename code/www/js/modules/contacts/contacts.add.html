@@ -8,12 +8,15 @@
         <h2>New Contact</h2>
         <ng-form name="vm.formItems">
             <ion-item>
-              <ion-label>AAAAANAME</ion-label>
+              <ion-label>NAME</ion-label>
                 <input type ="text" name="name" ng-change="vm.change()" ng-model="vm.name" placeholder="Enter Name"></input>
             </ion-item>
             <ion-item>
-                <ion-label>AAAAAAGE</ion-label>
-                <input type ="number" name="age" ng-change = "vm.change()" ng-model="vm.age" placeholder="Enter Age"></input>
+                <ion-label>ROLE</ion-label> <!-- Need to find the proper checkbox NG thingy -->
+                <select ng-model="vm.role" ng-change="vm.change()">
+                    <option value="RESCUER">RESCUER</option>
+                    <option value="RESCUEE">RESCUEE</option>
+                </select>
             </ion-item>    
         </ng-form>
         <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.addContact()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">Add Contact</button>
@@ -25,10 +28,6 @@
 
         <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.back()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
             Back
-        </button>
-
-        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.switch()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
-            Switch to Events Module
         </button>
 
         <i class="col-20"></i>

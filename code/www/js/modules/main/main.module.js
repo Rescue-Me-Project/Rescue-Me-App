@@ -19,6 +19,12 @@
           url: '/login',
           templateUrl: 'js/modules/main/login.html',
           controller: 'loginCtrl as vm'
-        });
+        })
+        .state('contacts_module', {
+					cache: false,
+					url: '/contacts_module',
+					templateUrl: 'js/modules/contacts/contacts.list.html',
+					controller: 'contactsListCtrl as vm'
+				});
     });
 })();

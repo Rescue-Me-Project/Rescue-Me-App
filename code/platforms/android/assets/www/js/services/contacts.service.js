@@ -3,19 +3,15 @@
     console.log("contactsSrvc executed");
 
     angular
-        .module('contactsjs')
+        .module('contactsService', [])
         .factory('contactsSrvc', ['uuid',contactsSrvc]);
     
         contactsSrvc.$inject = [
             'uuid',
-            '$q',
-            '$timeout'
         ];
 
     function contactsSrvc(
         uuid,
-        $q,
-        $timeout
     ) {
         
         var service = {
@@ -24,39 +20,67 @@
 
         var contactsLookUp = {};
 
+        //Add the ability to distinguish between Rescuer and Rescuee
+        //RescueeArray && RescuerArray
+
         service.createContacts = function(person){
             console.log(person);
 
             var UUID = uuid.v4();
 
             console.log(UUID);
+            console.log(person.role);
 
             contactsLookUp[UUID] = {
                 UUID : UUID,
                 name: person.name,
-                age: person.age
+                role: person.role
             };
 
             console.log(contactsLookUp);
+            var tempContacts = JSON.stringify(contactsLookUp);
+            console.log(tempContacts);
+
+            window.localStorage.setItem('Contacts', tempContacts);
         }
 
         service.getContactsArray = function(){
-            //var result = contactsArray;
             var result = [];
-            var keys = Object.getOwnPropertyNames(contactsLookUp);
-
-            for(var index = 0;index < keys.length;index++)
+            var tempContacts = window.localStorage.getItem('Contacts');
+            contactsLookUp = JSON.parse(tempContacts);
+            if(contactsLookUp != null)
             {
-                var key = keys[index];
-                var obj = contactsLookUp[key];
-                result.push(obj);
+                var keys = Object.getOwnPropertyNames(contactsLookUp);
+
+                //if role Rescuer
+                //push to RescuerArray
+                //if role Rescuee
+                //push to RescueeArray
+
+                for(var index = 0;index < keys.length;index++)
+                {
+                    var key = keys[index];
+                    var obj = contactsLookUp[key];
+                    result.push(obj);
+                }
+                return result;
             }
-            return result;
+            else
+            {
+                contactsLookUp = {};
+                return 0;
+            }
         }
         
         service.getContact = function(UUID){
             return angular.copy(contactsLookUp[UUID]);
         }
+
+        /* Remove Contact Function - Incomplete
+        service.removeContact = function(UUID){
+            return null;
+        }
+        */
         return service;
     }
 })();
