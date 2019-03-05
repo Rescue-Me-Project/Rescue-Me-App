@@ -35,7 +35,7 @@ console.log("I LIVE!");
 
             var person = {
                 name : vm.name,
-                role: role
+                role: vm.role
             }
             console.log(person);
 

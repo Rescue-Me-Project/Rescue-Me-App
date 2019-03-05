@@ -13,8 +13,10 @@
             </ion-item>
             <ion-item>
                 <ion-label>ROLE</ion-label> <!-- Need to find the proper checkbox NG thingy -->
-                <input type="checkbox" name="Rescuee" value="RESCUEE" ng-model="vm.role" ng-change="vm.change()">Rescuee<br>
-                <input type="checkbox" name="Rescuer" value="RESCUER" ng-model="vm.role" ng-change="vm.change()">Rescuer<br>
+                <select ng-model="vm.role" ng-change="vm.change()">
+                    <option value="RESCUER">RESCUER</option>
+                    <option value="RESCUEE">RESCUEE</option>
+                </select>
             </ion-item>    
         </ng-form>
         <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.addContact()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">Add Contact</button>

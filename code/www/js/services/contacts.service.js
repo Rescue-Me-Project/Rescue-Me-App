@@ -36,7 +36,7 @@
             contactsLookUp[UUID] = {
                 UUID : UUID,
                 name: person.name,
-                role: role
+                role: person.role
             };
 
             console.log(contactsLookUp);
