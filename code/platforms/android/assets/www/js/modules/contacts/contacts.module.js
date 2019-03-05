@@ -18,7 +18,10 @@
                     cache: false,
                     url: '/contacts_detail',
                     templateUrl: 'js/modules/contacts/contacts.detail.html',
-                    controller: 'contactsDetailCtrl as vm'
+                    controller: 'contactsDetailCtrl as vm',
+                    params: {
+                        selected: null
+                    }
                 })
                 .state('contacts_add', {
                     cache: false,

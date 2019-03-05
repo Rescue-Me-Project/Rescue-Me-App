@@ -24,6 +24,8 @@
             var item = vm.contacts[index];
             var UUID = item.UUID;
 
+            console.log(UUID);
+            
             $state.go('contacts_detail', {selected : UUID});
         }
 

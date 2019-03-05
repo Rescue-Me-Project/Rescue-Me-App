@@ -24,7 +24,9 @@
             $state.go('contacts_module');
         }
 
+        console.log($stateParams);
         var params = $stateParams;
+        console.log(params);
         vm.contact = contactsSrvc.getContact(params.selected);
     }
 })();
