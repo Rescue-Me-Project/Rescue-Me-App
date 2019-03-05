@@ -10,20 +10,34 @@
         var service = {
 
         };
-        
-        var userStorage = [];
 
         service.AddUser = function(user){
             
             user = user;
-            userStorage.push(user);
-
-            console.log(user);
+            if(!service.userExist())
+            {
+                console.log(user);
+                var tempLocal = JSON.stringify(user);
+                console.log(tempLocal);
+                window.localStorage.setItem('localUser', tempLocal);
+            }
         }
 
         service.getUser = function(){
-            console.log(userStorage[0]);
-            return angular.copy(userStorage[0]);
+            var tempLocal = window.localStorage.getItem('localUser');
+            var localUser = JSON.parse(tempLocal);
+            console.log(localUser);
+            console.log("Name: " + localUser.name);
+            return angular.copy(localUser);
+        }
+
+        service.userExist = function(){
+            var tempLocal = window.localStorage.getItem('localUser');
+
+            if(tempLocal != null)
+                return true;
+            else
+                return false;
         }
         
         return service;

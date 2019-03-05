@@ -31,14 +31,12 @@
 
     });
 
-    var user = loginSrvc.getUser();
-    
     vm.switch = function()
     {
       $state.go("contacts_module");
     }
-
-    vm.username = user.name;
+    vm.user = loginSrvc.getUser();
+    console.log("UserName: " + vm.user.name);
 
     vm.isRescuer = false;
     vm.isRescuee = false;

@@ -19,8 +19,6 @@
         };
 
         var contactsLookUp = {};
-        var rescuer = {};
-        var rescuee = {};
 
         //Add the ability to distinguish between Rescuer and Rescuee
         //RescueeArray && RescuerArray
@@ -40,24 +38,38 @@
             };
 
             console.log(contactsLookUp);
+            var tempContacts = JSON.stringify(contactsLookUp);
+            console.log(tempContacts);
+
+            window.localStorage.setItem('Contacts', tempContacts);
         }
 
         service.getContactsArray = function(){
             var result = [];
-            var keys = Object.getOwnPropertyNames(contactsLookUp);
-
-            //if role Rescuer
-            //push to RescuerArray
-            //if role Rescuee
-            //push to RescueeArray
-
-            for(var index = 0;index < keys.length;index++)
+            var tempContacts = window.localStorage.getItem('Contacts');
+            contactsLookUp = JSON.parse(tempContacts);
+            if(contactsLookUp != null)
             {
-                var key = keys[index];
-                var obj = contactsLookUp[key];
-                result.push(obj);
+                var keys = Object.getOwnPropertyNames(contactsLookUp);
+
+                //if role Rescuer
+                //push to RescuerArray
+                //if role Rescuee
+                //push to RescueeArray
+
+                for(var index = 0;index < keys.length;index++)
+                {
+                    var key = keys[index];
+                    var obj = contactsLookUp[key];
+                    result.push(obj);
+                }
+                return result;
             }
-            return result;
+            else
+            {
+                contactsLookUp = {};
+                return 0;
+            }
         }
         
         service.getContact = function(UUID){

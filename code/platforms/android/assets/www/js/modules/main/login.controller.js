@@ -33,20 +33,18 @@
             console.log(user);
 
             loginSrvc.AddUser(user);
-            
+
             //Store User Somewhere
             //Will go into main.html if login is success 
 
             $state.go('main');
         };
 
-        /*vm.Check = function Check(){
+        vm.Check = function Check(){
+            var user = loginSrvc.userExist();
 
-            //Check if there are user details stored locally
-            //if success
-            //$state.go('main');
-            //else
-            //goes to login page
-        }*/
+            if(user)
+                $state.go('main');
+        }
     }
 })();
