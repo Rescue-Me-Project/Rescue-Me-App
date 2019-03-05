@@ -38,7 +38,7 @@
             };
 
             console.log(contactsLookUp);
-            var tempContacts = JSON.stringify(contactsLookUp);
+            var tempContacts = angular.toJson(contactsLookUp);
             console.log(tempContacts);
 
             window.localStorage.setItem('Contacts', tempContacts);
@@ -47,7 +47,7 @@
         service.getContactsArray = function(){
             var result = [];
             var tempContacts = window.localStorage.getItem('Contacts');
-            contactsLookUp = JSON.parse(tempContacts);
+            contactsLookUp = angular.fromJson(tempContacts);
             if(contactsLookUp != null)
             {
                 var keys = Object.getOwnPropertyNames(contactsLookUp);
