@@ -14,8 +14,12 @@
             <ion-item>
                 <ion-label>ROLE</ion-label> <!-- Need to find the proper checkbox NG thingy -->
                 <select ng-model="vm.role" ng-change="vm.change()">
-                    <option value="RESCUER">RESCUER</option>
-                    <option value="RESCUEE">RESCUEE</option>
+                    <!--
+                        RESCUER : 1
+                        RESCUEE : 0
+                    -->
+                    <option value="1">RESCUER</option>
+                    <option value="0">RESCUEE</option>
                 </select>
             </ion-item>    
         </ng-form>

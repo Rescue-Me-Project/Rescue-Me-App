@@ -6,7 +6,8 @@
       'angular-uuid',
       'monospaced.qrcode',
       'push',
-      'login'
+      'login',
+      'user'
     ])
     .config(function($stateProvider){
       $stateProvider

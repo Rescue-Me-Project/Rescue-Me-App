@@ -7,16 +7,27 @@
 
     control.$inject = [
         '$state',
-        'contactsSrvc'
+        'contactsSrvc',
+        'userSrvc'
     ];
 
     function control(
         $state,
-        contactsSrvc
+        contactsSrvc,
+        userSrvc
     ) {
         var vm = angular.extend(this, {
             contacts : []
         });
+
+        var tempRole = userSrvc.getRole();
+
+        vm.role = tempRole.role;
+        vm.otherRole = tempRole.otherRole;
+        vm.hasRole = tempRole.hasRole;
+
+        vm.ROLE_STRINGS = [ "Rescuer",
+						    "Rescuee" ];
 
         vm.onItemSelected = function(index){
             console.log("Contact : " + index);
@@ -41,6 +52,6 @@
             $state.go('main');
         }
 
-        vm.contacts = contactsSrvc.getContactsArray();
+        vm.contacts = contactsSrvc.getContactsArray(vm.role);
     }
 })();

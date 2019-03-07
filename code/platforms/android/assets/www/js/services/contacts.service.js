@@ -20,7 +20,7 @@
 
         var contactsLookUp = {};
 
-        //Add the ability to distinguish between Rescuer and Rescuee
+        //Add the ability to distinguish between Rescuer and Rescuee State
         //RescueeArray && RescuerArray
 
         service.createContacts = function(person){
@@ -44,25 +44,40 @@
             window.localStorage.setItem('Contacts', tempContacts);
         }
 
-        service.getContactsArray = function(){
+        service.getContactsArray = function(userRole){
             var result = [];
+            var rescueeContacts = [];
+            var rescueerContacts = [];
+
             var tempContacts = window.localStorage.getItem('Contacts');
             contactsLookUp = angular.fromJson(tempContacts);
             if(contactsLookUp != null)
             {
                 var keys = Object.getOwnPropertyNames(contactsLookUp);
 
-                //if role Rescuer
-                //push to RescuerArray
-                //if role Rescuee
-                //push to RescueeArray
-
                 for(var index = 0;index < keys.length;index++)
                 {
                     var key = keys[index];
                     var obj = contactsLookUp[key];
-                    result.push(obj);
+                    if(obj.role == 0)
+                        rescueerContacts.push(obj);
+                    else if(obj.role == 1)
+                        rescueeContacts.push(obj);
+                    else
+                        result.push(obj);
                 }
+
+                if(userRole == 1)
+                {
+                    result = [];
+                    result = rescueerContacts;
+                }
+                else if (userRole == 0)
+                {
+                    result = [];
+                    result = rescueeContacts;
+                }
+
                 return result;
             }
             else
