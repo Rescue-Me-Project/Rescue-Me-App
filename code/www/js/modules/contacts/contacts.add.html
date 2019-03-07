@@ -1,0 +1,36 @@
+<ion-view style="background-color: #272733;" can-swipe-back="false">
+
+    <ion-header-bar class="bar-dark" align-title="center">
+        <h1 class="title">Contacts</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-header">
+        <h2>New Contact</h2>
+        <ng-form name="vm.formItems">
+            <ion-item>
+              <ion-label>NAME</ion-label>
+                <input type ="text" name="name" ng-change="vm.change()" ng-model="vm.name" placeholder="Enter Name"></input>
+            </ion-item>
+            <ion-item>
+                <ion-label>ROLE</ion-label> <!-- Need to find the proper checkbox NG thingy -->
+                <select ng-model="vm.role" ng-change="vm.change()">
+                    <option value="RESCUER">RESCUER</option>
+                    <option value="RESCUEE">RESCUEE</option>
+                </select>
+            </ion-item>    
+        </ng-form>
+        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.addContact()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">Add Contact</button>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
+        <i class="col-20"></i>
+
+        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.back()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
+            Back
+        </button>
+
+        <i class="col-20"></i>
+    </ion-footer-bar>
+
+</ion-view>

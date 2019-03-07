@@ -5,9 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', [
   'ionic',
+<<<<<<< HEAD
   'main'
 //  'momentjs', // ADDED used for dates
 //  'eventsjs'  // ADDED our events module
+=======
+  'main',
+  'contactsjs'
+>>>>>>> master
 ])
 
   .run(function ($ionicPlatform, $state, $rootScope) {
@@ -30,7 +35,11 @@ angular.module('starter', [
       }
 
       // ADDED START
+<<<<<<< HEAD
       $state.go("main");
+=======
+      $state.go("login");
+>>>>>>> master
       // ADDED END
 
     });

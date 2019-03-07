@@ -25,7 +25,11 @@
   </div>
 
   <div id="connected" ng-show="vm.pushConnected===true">
+<<<<<<< HEAD
     <p>Connected.</p>
+=======
+    <p>Connected. Hello {{vm.user.name}}!</p>
+>>>>>>> master
     <div id="role-buttons">
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUER}" ng-click="vm.setRescuer(true);">Rescuer</button>
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUEE}" ng-click="vm.setRescuee(true);">Rescuee</button>
@@ -59,5 +63,17 @@
       <button ion-button round ng-click="vm.pingOther();" >Ping the other!</button>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+  <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
+    <i class="col-20"></i>
+    
+    <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.switch()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
+        Switch to Contacts
+    </button>
+    <i class="col-20"></i>
+</ion-footer-bar>
+>>>>>>> master
 </ion-view>
 

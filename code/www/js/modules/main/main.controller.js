@@ -12,6 +12,10 @@
     '$sce',
     '$http',
     'pushSrvc',
+<<<<<<< HEAD
+=======
+    'loginSrvc',
+>>>>>>> master
     'uuid'
   ];
 2
@@ -22,6 +26,10 @@
     $sce,
     $http,
     pushSrvc,
+<<<<<<< HEAD
+=======
+    loginSrvc,
+>>>>>>> master
     uuid
   ) {
 
@@ -29,6 +37,16 @@
 
     });
 
+<<<<<<< HEAD
+=======
+    vm.switch = function()
+    {
+      $state.go("contacts_module");
+    }
+    vm.user = loginSrvc.getUser();
+    console.log("UserName: " + vm.user.name);
+
+>>>>>>> master
     vm.isRescuer = false;
     vm.isRescuee = false;
 
