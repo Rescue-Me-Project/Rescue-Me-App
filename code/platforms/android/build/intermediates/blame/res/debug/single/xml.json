@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
+        "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\xml\\preferences.xml"
+    }
+]

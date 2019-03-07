@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\layout-land\\share.xml",
+        "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\layout-land\\share.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\layout-land\\encode.xml",
+        "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\layout-land\\encode.xml"
+    }
+]
