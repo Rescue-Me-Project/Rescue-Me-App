@@ -13,6 +13,7 @@
     '$http',
     'pushSrvc',
     'loginSrvc',
+    'userSrvc',
     'uuid'
   ];
 2
@@ -24,6 +25,7 @@
     $http,
     pushSrvc,
     loginSrvc,
+    userSrvc,
     uuid
   ) {
 
@@ -31,23 +33,18 @@
 
     });
 
-    vm.switch = function()
-    {
-      $state.go("contacts_module");
-    }
     vm.user = loginSrvc.getUser();
-    console.log("UserName: " + vm.user.name);
 
-    vm.isRescuer = false;
-    vm.isRescuee = false;
-
+    //USER ROLES
     vm.role = undefined;
     vm.otherRole = undefined;
 
 	  vm.ROLES = { RESCUER : 0,
 			  	       RESCUEE : 1 };
 	  vm.ROLE_STRINGS = [ "Rescuer",
-						            "Rescuee" ];
+                        "Rescuee" ];
+                        
+    //MESSAGES
 	  vm.MESSAGE_TYPE_ID = { ACK : 0,
 						               NACK : 1,
 						               CONNECTION_REQUEST: 2,
@@ -270,6 +267,11 @@
       });
 
     };
+
+    vm.switch = function()
+    {
+      $state.go("contacts_module");
+    }
 
     vm.initialise();
 
