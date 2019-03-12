@@ -8,6 +8,18 @@
         "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\menu\\capture.xml"
     },
     {
+        "merged": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\menu\\encode.xml",
+        "source": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\menu\\encode.xml"
+    },
+    {
+        "merged": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\menu\\capture.xml",
+        "source": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\menu\\capture.xml"
+    },
+    {
+        "merged": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\menu\\history.xml",
+        "source": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\menu\\history.xml"
+    },
+    {
         "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\menu\\encode.xml",
         "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\menu\\encode.xml"
     }

@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
         "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\raw\\beep.ogg"
+    },
+    {
+        "merged": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\exploded-aar\\barcodescanner-release-2.1.5\\res\\raw\\beep.ogg"
     }
 ]

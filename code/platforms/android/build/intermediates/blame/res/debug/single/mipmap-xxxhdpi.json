@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\icon.png",
+        "source": "C:\\Users\\Armando\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\res\\mipmap-xxxhdpi\\icon.png"
+    },
+    {
         "merged": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\icon.png",
         "source": "C:\\Users\\USER\\Documents\\GitHub\\Rescue-Me-App\\code\\platforms\\android\\res\\mipmap-xxxhdpi\\icon.png"
     }

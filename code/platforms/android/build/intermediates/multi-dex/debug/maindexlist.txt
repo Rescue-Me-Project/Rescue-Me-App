@@ -42,8 +42,8 @@ android/support/v4/app/NotificationCompat$Style.class
 android/support/v4/app/ActionBarDrawerToggle.class
 android/support/v4/media/MediaBrowserCompat$ConnectionCallback.class
 android/support/v4/media/MediaDescriptionCompat$Builder.class
-android/support/v4/app/DialogFragment$DialogStyle.class
 android/support/v4/media/MediaBrowserServiceCompat$ResultFlags.class
+android/support/v4/app/DialogFragment$DialogStyle.class
 android/support/v4/media/MediaMetadataCompat$Builder.class
 com/google/android/gms/common/zzp.class
 android/support/multidex/MultiDex.class
@@ -168,8 +168,8 @@ android/support/v4/provider/FontsContractCompat$Columns.class
 android/support/v4/view/ViewCompat$LayerType.class
 android/support/v4/media/MediaBrowserCompatApi21.class
 org/apache/cordova/engine/SystemExposedJsApi.class
-android/support/v4/content/SharedPreferencesCompat$EditorCompat.class
 com/google/zxing/common/BitMatrix.class
+android/support/v4/content/SharedPreferencesCompat$EditorCompat.class
 android/support/v4/print/PrintHelper$ScaleMode.class
 android/support/v4/media/session/MediaSessionCompat$Token.class
 android/support/design/widget/CoordinatorLayout$LayoutParams.class

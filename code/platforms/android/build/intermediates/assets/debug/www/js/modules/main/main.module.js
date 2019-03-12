@@ -7,6 +7,7 @@
       'monospaced.qrcode',
       'push',
       'login',
+      'connection',
       'user'
     ])
     .config(function($stateProvider){
@@ -15,6 +16,7 @@
           url: '/main',
           templateUrl: 'js/modules/main/main.html',
           controller: 'mainCtrl as vm'
+        });
         })
         .state('login', {
           url: '/login',
@@ -27,5 +29,4 @@
 					templateUrl: 'js/modules/contacts/contacts.list.html',
 					controller: 'contactsListCtrl as vm'
 				});
-    });
 })();

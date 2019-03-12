@@ -1,7 +1,7 @@
--injars 'C:\Users\USER\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
--outjars 'C:\Users\USER\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\multi-dex\debug\componentClasses.jar'
+-injars 'C:\Users\Armando\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'C:\Users\Armando\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\multi-dex\debug\componentClasses.jar'
 
--libraryjars 'C:\Users\USER\AppData\Local\Android\Sdk\build-tools\28.0.3\lib\shrinkedAndroid.jar'
+-libraryjars 'C:\Users\Armando\AppData\Local\Android\Sdk\build-tools\28.0.3\lib\shrinkedAndroid.jar'
 
 -forceprocessing
 -dontoptimize
@@ -10,7 +10,7 @@
 -dontpreverify
 -dontnote **
 -dontwarn **
--printconfiguration 'C:\Users\USER\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\multi-dex\debug\components.flags'
+-printconfiguration 'C:\Users\Armando\Documents\GitHub\Rescue-Me-App\code\platforms\android\build\intermediates\multi-dex\debug\components.flags'
 
 
 -keep public class * extends android.app.Instrumentation {
