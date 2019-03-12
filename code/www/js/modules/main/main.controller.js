@@ -13,6 +13,7 @@
     '$http',
     'pushSrvc',
     'loginSrvc',
+    'userSrvc',
     'uuid'
   ];
 2
@@ -24,6 +25,7 @@
     $http,
     pushSrvc,
     loginSrvc,
+    userSrvc,
     uuid
   ) {
 
@@ -31,23 +33,32 @@
 
     });
 
-    vm.switch = function()
-    {
-      $state.go("contacts_module");
-    }
     vm.user = loginSrvc.getUser();
-    console.log("UserName: " + vm.user.name);
 
-    vm.isRescuer = false;
-    vm.isRescuee = false;
-
+    //USER ROLES
     vm.role = undefined;
     vm.otherRole = undefined;
 
-	  vm.ROLES = { RESCUER : 0,
-			  	       RESCUEE : 1 };
-	  vm.ROLE_STRINGS = [ "Rescuer",
+    vm.ROLE_STRINGS = [ "Rescuer",
 						            "Rescuee" ];
+                 
+    vm.setRescuer = function setRescuer( ) {
+      var tempUserState = userSrvc.setRescuer();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = vm.ACTIVITY.SHOW;
+    };
+
+    vm.setRescuee = function setRescuee( ) {
+      var tempUserState = userSrvc.setRescuee();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = vm.ACTIVITY.SCAN;
+    };
+                        
+    //MESSAGES
 	  vm.MESSAGE_TYPE_ID = { ACK : 0,
 						               NACK : 1,
 						               CONNECTION_REQUEST: 2,
@@ -58,12 +69,14 @@
                                    "JSON": 2
                                  };
 	  vm.ACTIVITY = { SHOW: 1,
-					          SCAN: 2 };
+                    SCAN: 2 };
+                    
 	  vm.MESSAGE_TIMEOUT_SECONDS = 10;
 
     vm.pushConnected = false;
     vm.activity = 0;
-    vm.registrationId = "";
+
+    vm.registrationId = ""; //MOVE TO CONNECTION SERVICE
 
     vm.uuid = false;
 
@@ -107,6 +120,7 @@
     };
 
     //I WANT TO MOVE THIS TO ADD CONTACTS
+    //MOVE TO CONNECTION SERVICE
     vm.startCodeScan = function startCodeScan() {
       console.log("starting a QR code scan");
       cordova.plugins.barcodeScanner.scan(
@@ -167,6 +181,7 @@
       );
     };
 
+    //MOVE TO CONNECTION SERVICE
     vm.handleInbound = function handleInbound( data ) {
       console.log("got inbound message", data);
 
@@ -254,6 +269,7 @@
       }
     };
 
+    //MOVE TO CONNECTION SERVICE
     vm.pingOther = function pingOther() {
       var responsePayload = {
         connection_id: vm.uuid,
@@ -275,6 +291,12 @@
 
     };
 
+    vm.switch = function()
+    {
+      $state.go("contacts_module");
+    }
+
+    //WHAT IS THIS?
     vm.initialise();
 
   }
