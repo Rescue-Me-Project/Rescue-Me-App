@@ -17,7 +17,6 @@
     'connectionSrvc',
     'uuid'
   ];
-2
   function mainCtrl(
     $ionicPlatform,
     $scope,
@@ -35,18 +34,19 @@
 
     });
 
-    vm.isRescuer = false;
-    vm.isRescuee = false;
-
     vm.user = loginSrvc.getUser(); //d
 
     //USER ROLES
     vm.role = undefined; //d
     vm.otherRole = undefined; //d
-
+    var temp = {};
     vm.ROLE_STRINGS = [ "Rescuer",
 						            "Rescuee" ];
 
+    vm.ACTIVITY = { 
+      SHOW: 1,
+      SCAN: 2 
+    };
 
     //d
     vm.setRescuer = function setRescuer( ) {
@@ -56,7 +56,7 @@
 
       vm.role = tempUserState.role;
       vm.otherRole = tempUserState.otherRole;
-      vm.activity = connectionSrvc.ACTIVITY.SHOW; //d
+      vm.activity = vm.ACTIVITY.SHOW; //d
     };
 
     //d
@@ -67,28 +67,33 @@
 
       vm.role = tempUserState.role;
       vm.otherRole = tempUserState.otherRole;
-      vm.activity = connectionSrvc.ACTIVITY.SHOW; //d
+      vm.activity = vm.ACTIVITY.SCAN; //d
     };
 
-    vm.pushConnected = service.pushConnected; //d
-    vm.activity = service.activity;
-    vm.registrationId = service.registrationId;
-
-    vm.uuid = service.uuid;
-    vm.inbound = service.inbound;
-    vm.subscriptionFeedback = service.subscriptionFeedback;
+    //Should Main Controller
+    vm.getProperties = function(){
+      
+      temp = connectionSrvc.getProperties();
+      vm.pushConnected = temp.pushConnected;
+      vm.registrationId = temp.registrationId;
+      vm.uuid = temp.uuid;
+      vm.inbound = temp.inbound;
+      vm.subscriptionFeedback = temp.subscriptionFeedback;
+      console.log("Registration ID: " + vm.registrationId);
+    } //Don't know how to update this, code is not running when we run main for the first time
 
     vm.startCodeScan = function startCodeScan(){
       connectionSrv.startCodeScan();
-    }
+    };
   
     vm.pingOther = function pingOther(){
       connectionSrvc.pingOther();
-    }
+    };
   
     //d
     vm.initialise = function(){
         connectionSrvc.initialise();
-    }
+        vm.getProperties();
+    };
   }
 })();

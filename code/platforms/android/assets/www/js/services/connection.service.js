@@ -3,7 +3,8 @@
 
 (function(){
   'use strict';
-
+  console.log("connectionSrvc executed");
+  
   angular
       .module('connection', [])
       .factory('connectionSrvc', connectionSrvc)
@@ -47,6 +48,7 @@
     service.MESSAGE_TIMEOUT_SECONDS = 10;
 
     service.pushConnected = false;
+
     service.activity = 0;
     service.registrationId = "";
 
@@ -62,7 +64,21 @@
     service.subscriptionFeedback = "";
 
     service.pendingMessage = {};
+    
+    //Inside Connection Service
+    service.getProperties = function(){
+      var properties = {
+        pushConnected : service.pushConnected,
+        activity : service.activity,
+        registrationId : service.registrationId,
+        uuid : service.uuid,
+        inbound : service.inbound,
+        subscriptionFeedback : service.subscriptionFeedback
 
+      }
+
+      return properties
+    }
     service.initialise = function initialise() {
 
           service.inbound.rendered = "No registrationId yet...";

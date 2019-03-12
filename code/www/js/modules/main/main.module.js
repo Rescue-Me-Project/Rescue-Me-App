@@ -16,7 +16,6 @@
           url: '/main',
           templateUrl: 'js/modules/main/main.html',
           controller: 'mainCtrl as vm'
-        });
         })
         .state('login', {
           url: '/login',
@@ -28,5 +27,6 @@
 					url: '/contacts_module',
 					templateUrl: 'js/modules/contacts/contacts.list.html',
 					controller: 'contactsListCtrl as vm'
-				});
+        });
+      });
 })();

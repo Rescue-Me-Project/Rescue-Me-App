@@ -3,6 +3,7 @@
 
 (function(){
   'use strict';
+  console.log("connectionSrvc executed");
 
   angular
       .module('connection', [])
@@ -39,15 +40,10 @@
           "JSON": 2
         };
 
-    service.ACTIVITY = { 
-      SHOW: 1,
-      SCAN: 2 
-    };
-
     service.MESSAGE_TIMEOUT_SECONDS = 10;
 
     service.pushConnected = false;
-    service.activity = 0;
+
     service.registrationId = "";
 
     service.uuid = false;
@@ -62,7 +58,20 @@
     service.subscriptionFeedback = "";
 
     service.pendingMessage = {};
+    
+    //Inside Connection Service
+    service.getProperties = function(){
+      var properties = {
+        pushConnected : service.pushConnected,
+        registrationId : service.registrationId,
+        uuid : service.uuid,
+        inbound : service.inbound,
+        subscriptionFeedback : service.subscriptionFeedback
 
+      }
+
+      return properties
+    }
     service.initialise = function initialise() {
 
           service.inbound.rendered = "No registrationId yet...";
