@@ -84,7 +84,8 @@
     vm.subscriptionFeedback = "";
 
     vm.pendingMessage = {};
-
+    
+    //FUNCTIONS
     vm.initialise = function initialise() {
 
       vm.inbound.rendered = "No registrationId yet...";
