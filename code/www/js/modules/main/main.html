@@ -25,11 +25,8 @@
   </div>
 
   <div id="connected" ng-show="vm.pushConnected===true">
-<<<<<<< HEAD
     <p>Connected.</p>
-=======
     <p>Connected. Hello {{vm.user.name}}!</p>
->>>>>>> master
     <div id="role-buttons">
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUER}" ng-click="vm.setRescuer(true);">Rescuer</button>
       <button ion-button round ng-class="{'button-positive': vm.role===vm.ROLES.RESCUEE}" ng-click="vm.setRescuee(true);">Rescuee</button>
@@ -51,6 +48,7 @@
       <h3>{{vm.ROLE_STRINGS[vm.role]}}</h3>
       <p>Connect to a {{vm.ROLE_STRINGS[vm.otherRole]}}</p>
 
+      <!-- I WANT TO MOVE THIS TO ADD CONTACTS -->
       <qrcode x-version="{{5}}" x-error-correction-level="{{M}}" x-size="{{size}}" data="{{vm.registrationId}}" x-color="{{color}}" x-background="{{background}}" download="false" ></qrcode>
     </div>
   </div>
@@ -63,8 +61,6 @@
       <button ion-button round ng-click="vm.pingOther();" >Ping the other!</button>
     </div>
   </div>
-<<<<<<< HEAD
-=======
 
   <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
     <i class="col-20"></i>
@@ -74,6 +70,5 @@
     </button>
     <i class="col-20"></i>
 </ion-footer-bar>
->>>>>>> master
 </ion-view>
 
