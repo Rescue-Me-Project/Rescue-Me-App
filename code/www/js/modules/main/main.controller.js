@@ -30,7 +30,7 @@
     vm.isRescuer = false;
     vm.isRescuee = false;
 
-    vm.role = undefined;
+    vm.role = undefined; //d
     vm.otherRole = undefined;
 
 	  vm.ROLES = { RESCUER : 0,
@@ -39,7 +39,14 @@
 						            "Rescuee" ];
 
 
-    
+    vm.pushConnected = service.pushConnected; //d
+    vm.activity = service.activity;
+    vm.registrationId = service.registrationId;
+
+    vm.uuid = service.uuid;
+    vm.inbound = service.inbound;
+    vm.subscriptionFeedback = service.subscriptionFeedback;
+    vm.pendingMessage = 
     vm.setRescuer = function setRescuer( ) { //main controller
       console.log("setting as rescuer");
       vm.role = vm.ROLES.RESCUER;
@@ -55,6 +62,15 @@
     };
   }
 
+  vm.startCodeScan = function startCodeScan(){
+    connectionSrv.startCodeScan();
+  }
+
+  vm.pingOther = function pingOther(){
+    connectionSrvc.pingOther();
+  }
+
+  //d
   vm.initialise = function(){
       connectionSrvc.initialise();
   }

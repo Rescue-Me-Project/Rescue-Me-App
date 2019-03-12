@@ -25,15 +25,19 @@
   ) {
     
     var service = {};
-      service.MESSAGE_TYPE_ID = { ACK : 0,
+
+
+service.MESSAGE_TYPE_ID = { ACK : 0,
           NACK : 1,
           CONNECTION_REQUEST: 2,
           CONNECTION_RESPONSE: 3,
           MESSAGE: 4 };
+
 service.MESSAGE_PAYLOAD_TYPE_ID = { "STRING": 0,
       "INTEGER": 1,
       "JSON": 2
     };
+
 service.ACTIVITY = { SHOW: 1,
  SCAN: 2 };
 service.MESSAGE_TIMEOUT_SECONDS = 10;
