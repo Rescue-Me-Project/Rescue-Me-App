@@ -12,7 +12,10 @@
     '$sce',
     '$http',
     'pushSrvc',
+<<<<<<< HEAD
+=======
     'loginSrvc',
+>>>>>>> master
     'uuid'
   ];
 2
@@ -23,7 +26,10 @@
     $sce,
     $http,
     pushSrvc,
+<<<<<<< HEAD
+=======
     loginSrvc,
+>>>>>>> master
     uuid
   ) {
 
@@ -31,6 +37,8 @@
 
     });
 
+<<<<<<< HEAD
+=======
     vm.switch = function()
     {
       $state.go("contacts_module");
@@ -38,6 +46,7 @@
     vm.user = loginSrvc.getUser();
     console.log("UserName: " + vm.user.name);
 
+>>>>>>> master
     vm.isRescuer = false;
     vm.isRescuee = false;
 
@@ -106,7 +115,6 @@
       vm.activity = vm.ACTIVITY.SCAN;
     };
 
-    //I WANT TO MOVE THIS TO ADD CONTACTS
     vm.startCodeScan = function startCodeScan() {
       console.log("starting a QR code scan");
       cordova.plugins.barcodeScanner.scan(
@@ -117,9 +125,8 @@
             return;
           } else {
             if(qrResult.format==="QR_CODE") {
-              //Contact UUID is inserted into temp_uuid
               var temp_uuid = uuid.v4();
-			        //request a connection uuid
+			        // request a connection uuid
               var connection_payload = {
                 method: 'POST',
                 url: pushSrvc.SERVER_ROOT + "/connections",
@@ -209,7 +216,6 @@
             vm.uuid = payload.connection_id;
             // subscribe to this topic
             pushSrvc.subscribe( vm.uuid );
-
           }, function failedSending(err) {
             console.log('error sending first message - ',err);
             alert("Problem sending confirmation payload - "+err);
@@ -219,7 +225,6 @@
           // this is the confirmation of the other user - message from line 185
           vm.uuid = payload.connection_id;
           // subscribe to this topic
-          //Change it so that vm.uuid is the uuid of the contact you wish to communicate with
           pushSrvc.subscribe( vm.uuid );
         }
 
