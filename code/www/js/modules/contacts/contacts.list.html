@@ -1,12 +1,14 @@
 <ion-view style="background-color: #272733;" can-swipe-back="false">
 
     <ion-header-bar class="bar-dark" align-title="center">
-        <h1 class="title">Contacts</h1>
+        <h1 ng-show = "vm.hasRole">Contacts - {{vm.ROLE_STRINGS[vm.otherRole]}}</h1>
+
+        <h1 ng-show = "!vm.hasRole">All Contacts</h1>
     </ion-header-bar>
 
     <ion-content class="has-header">
 
-
+        <!-- Contact List -->
         <div ng-hide="!vm.noContacts">
 
             <ion-list>
@@ -19,7 +21,7 @@
 
 
 
-        <div ng-hide="!vm.noContacts" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div ng-hide="vm.noContacts" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
             <h1 class="light">No Contacts Yet!</h1>
         </div>
 

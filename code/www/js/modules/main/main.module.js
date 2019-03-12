@@ -7,7 +7,8 @@
       'monospaced.qrcode',
       'push',
       'login',
-      'connection'
+      'connection',
+      'user'
     ])
     .config(function($stateProvider){
       $stateProvider
@@ -28,5 +29,4 @@
 					templateUrl: 'js/modules/contacts/contacts.list.html',
 					controller: 'contactsListCtrl as vm'
 				});
-    });
 })();

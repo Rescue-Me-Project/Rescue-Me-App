@@ -10,8 +10,12 @@
     '$scope',
     '$state',
     '$sce',
-    'uuid',
-    'connectionSrvc'
+    '$http',
+    'pushSrvc',
+    'loginSrvc',
+    'userSrvc',
+    'connectionSrvc',
+    'uuid'
   ];
 2
   function mainCtrl(
@@ -19,8 +23,12 @@
     $scope,
     $state,
     $sce,
-    uuid,
-    connectionSrvc
+    $http,
+    pushSrvc,
+    loginSrvc,
+    userSrvc,
+    connectionSrvc,
+    uuid
   ) {
 
     var vm=angular.extend(this, {
@@ -30,14 +38,37 @@
     vm.isRescuer = false;
     vm.isRescuee = false;
 
-    vm.role = undefined; //d
-    vm.otherRole = undefined;
+    vm.user = loginSrvc.getUser(); //d
 
-	  vm.ROLES = { RESCUER : 0,
-			  	       RESCUEE : 1 };
-	  vm.ROLE_STRINGS = [ "Rescuer",
+    //USER ROLES
+    vm.role = undefined; //d
+    vm.otherRole = undefined; //d
+
+    vm.ROLE_STRINGS = [ "Rescuer",
 						            "Rescuee" ];
 
+
+    //d
+    vm.setRescuer = function setRescuer( ) {
+      console.log("setting as rescuer");
+
+      var tempUserState = userSrvc.setRescuer();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = connectionSrvc.ACTIVITY.SHOW; //d
+    };
+
+    //d
+    vm.setRescuee = function setRescuee( ) {
+      console.log("setting as rescue*e*");
+      
+      var tempUserState = userSrvc.setRescuee();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = connectionSrvc.ACTIVITY.SHOW; //d
+    };
 
     vm.pushConnected = service.pushConnected; //d
     vm.activity = service.activity;
@@ -46,33 +77,18 @@
     vm.uuid = service.uuid;
     vm.inbound = service.inbound;
     vm.subscriptionFeedback = service.subscriptionFeedback;
-    vm.pendingMessage = 
-    vm.setRescuer = function setRescuer( ) { //main controller
-      console.log("setting as rescuer");
-      vm.role = vm.ROLES.RESCUER;
-      vm.otherRole = vm.ROLES.RESCUEE;
-      vm.activity = vm.ACTIVITY.SHOW;
-    };
 
-    vm.setRescuee = function setRescuee( ) { //main controller
-      console.log("setting as rescue*e*");
-      vm.role = vm.ROLES.RESCUEE;
-      vm.otherRole = vm.ROLES.RESCUER;
-      vm.activity = vm.ACTIVITY.SCAN;
-    };
+    vm.startCodeScan = function startCodeScan(){
+      connectionSrv.startCodeScan();
+    }
+  
+    vm.pingOther = function pingOther(){
+      connectionSrvc.pingOther();
+    }
+  
+    //d
+    vm.initialise = function(){
+        connectionSrvc.initialise();
+    }
   }
-
-  vm.startCodeScan = function startCodeScan(){
-    connectionSrv.startCodeScan();
-  }
-
-  vm.pingOther = function pingOther(){
-    connectionSrvc.pingOther();
-  }
-
-  //d
-  vm.initialise = function(){
-      connectionSrvc.initialise();
-  }
-
 })();

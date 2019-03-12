@@ -13,6 +13,7 @@
     '$http',
     'pushSrvc',
     'loginSrvc',
+    'userSrvc',
     'uuid'
   ];
 2
@@ -24,6 +25,7 @@
     $http,
     pushSrvc,
     loginSrvc,
+    userSrvc,
     uuid
   ) {
 
@@ -31,23 +33,32 @@
 
     });
 
-    vm.switch = function()
-    {
-      $state.go("contacts_module");
-    }
     vm.user = loginSrvc.getUser();
-    console.log("UserName: " + vm.user.name);
 
-    vm.isRescuer = false;
-    vm.isRescuee = false;
-
+    //USER ROLES
     vm.role = undefined;
     vm.otherRole = undefined;
 
-	  vm.ROLES = { RESCUER : 0,
-			  	       RESCUEE : 1 };
-	  vm.ROLE_STRINGS = [ "Rescuer",
+    vm.ROLE_STRINGS = [ "Rescuer",
 						            "Rescuee" ];
+                 
+    vm.setRescuer = function setRescuer( ) {
+      var tempUserState = userSrvc.setRescuer();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = vm.ACTIVITY.SHOW;
+    };
+
+    vm.setRescuee = function setRescuee( ) {
+      var tempUserState = userSrvc.setRescuee();
+
+      vm.role = tempUserState.role;
+      vm.otherRole = tempUserState.otherRole;
+      vm.activity = vm.ACTIVITY.SCAN;
+    };
+                        
+    //MESSAGES
 	  vm.MESSAGE_TYPE_ID = { ACK : 0,
 						               NACK : 1,
 						               CONNECTION_REQUEST: 2,
@@ -90,20 +101,6 @@
           pushSrvc.setTimeout( vm.MESSAGE_TIMEOUT_SECONDS * 1000 );
         }
       });
-    };
-
-    vm.setRescuer = function setRescuer( ) {
-      console.log("setting as rescuer");
-      vm.role = vm.ROLES.RESCUER;
-      vm.otherRole = vm.ROLES.RESCUEE;
-      vm.activity = vm.ACTIVITY.SHOW;
-    };
-
-    vm.setRescuee = function setRescuee( ) {
-      console.log("setting as rescue*e*");
-      vm.role = vm.ROLES.RESCUEE;
-      vm.otherRole = vm.ROLES.RESCUER;
-      vm.activity = vm.ACTIVITY.SCAN;
     };
 
     vm.startCodeScan = function startCodeScan() {
@@ -270,6 +267,11 @@
       });
 
     };
+
+    vm.switch = function()
+    {
+      $state.go("contacts_module");
+    }
 
     vm.initialise();
 
