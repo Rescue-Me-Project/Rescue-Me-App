@@ -4,7 +4,8 @@
     angular
         .module('contactsjs',[
             'angular-uuid',
-            'contactsService'
+            'contactsService',
+            'connectionService',
         ])
         .config(function($stateProvider){
            $stateProvider

@@ -7,7 +7,8 @@
       'monospaced.qrcode',
       'push',
       'login',
-      'user'
+      'user',
+      'connectionService'
     ])
     .config(function($stateProvider){
       $stateProvider

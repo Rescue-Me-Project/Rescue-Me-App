@@ -14,6 +14,7 @@
     'pushSrvc',
     'loginSrvc',
     'userSrvc',
+    'connectionSrvc',
     'uuid'
   ];
 2
@@ -26,6 +27,7 @@
     pushSrvc,
     loginSrvc,
     userSrvc,
+    connectionSrvc,
     uuid
   ) {
 
@@ -84,7 +86,8 @@
     vm.subscriptionFeedback = "";
 
     vm.pendingMessage = {};
-
+    
+    //FUNCTIONS
     vm.initialise = function initialise() {
 
       vm.inbound.rendered = "No registrationId yet...";
@@ -95,6 +98,9 @@
         if (data.hasOwnProperty('registrationId')===true) {
 
           vm.registrationId = data.registrationId;
+          console.log("Registration ID from main: ", vm.registrationId);
+          connectionSrvc.setRegistrationID(vm.registrationId);
+          console.log("registration ID from service: ", connectionSrvc.getRegistrationID());
           vm.pushConnected = true;
 
           pushSrvc.setCallback( vm.handleInbound );

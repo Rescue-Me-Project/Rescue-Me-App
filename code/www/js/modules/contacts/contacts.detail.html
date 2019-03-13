@@ -12,6 +12,9 @@
             <h3 class="light">UUID: {{vm.contact.UUID}}</h3>
         </div>
 
+        <button ion-button round ng-click="vm.startCodeScan()">Scan QR Code</button>
+        <button ion-button round ng-click="vm.pingOther();" >Ping the other!</button>
+
     </ion-content>
 
     <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
