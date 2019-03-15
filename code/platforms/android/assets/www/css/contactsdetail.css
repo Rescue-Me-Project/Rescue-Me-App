@@ -1,0 +1,11 @@
+@media(max-width:600px);
+
+body{
+	background-color: #00CED1;
+}
+
+h1{
+	font-size: 75px;
+	background-color: #D3D3D3;
+	margin: 0px;
+}
