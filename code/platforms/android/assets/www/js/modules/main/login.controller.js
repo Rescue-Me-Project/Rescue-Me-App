@@ -41,9 +41,9 @@
         };
 
         vm.Check = function Check(){
-            var user = loginSrvc.userExist();
+            var userExist = loginSrvc.userExist();
 
-            if(user)
+            if(userExist)
                 $state.go('main');
         }
     }

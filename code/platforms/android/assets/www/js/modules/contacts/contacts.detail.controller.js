@@ -8,17 +8,28 @@
     control.$inject = [
         '$state',
         '$stateParams',
-        'contactsSrvc'
+        'contactsSrvc',
+        'connectionSrvc'
     ];
 
     function control(
         $state,
         $stateParams,
-        contactsSrvc
+        contactsSrvc,
+        connectionSrvc
     ) {
         var vm = angular.extend(this, {
             contact: {}
         });
+
+        vm.startCodeScan = function startCodeScan(){
+            connectionSrvc.startCodeScan(vm.contact);
+        }
+
+        vm.pingOther = function pingOther()
+        {
+            connectionSrvc.pingOther(vm.contact);
+        }
 
         vm.done = function(){
             $state.go('contacts_module');

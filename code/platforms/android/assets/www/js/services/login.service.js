@@ -17,7 +17,7 @@
             if(!service.userExist())
             {
                 console.log(user);
-                var tempLocal = JSON.stringify(user);
+                var tempLocal = angular.toJson(user);
                 console.log(tempLocal);
                 window.localStorage.setItem('localUser', tempLocal);
             }
@@ -25,7 +25,7 @@
 
         service.getUser = function(){
             var tempLocal = window.localStorage.getItem('localUser');
-            var localUser = JSON.parse(tempLocal);
+            var localUser = angular.fromJson(tempLocal);
             console.log(localUser);
             console.log("Name: " + localUser.name);
             return angular.copy(localUser);
