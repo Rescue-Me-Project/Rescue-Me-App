@@ -110,62 +110,7 @@
     };
 
     vm.startCodeScan = function startCodeScan() {
-      console.log("starting a QR code scan");
-      cordova.plugins.barcodeScanner.scan(
-        function(qrResult) { // .text .format .cancelled
-          console.log("scanned",qrResult);
-          if(qrResult.cancelled===true) {
-            console.log("aborted scan!");
-            return;
-          } else {
-            if(qrResult.format==="QR_CODE") {
-              var temp_uuid = uuid.v4();
-			        // request a connection uuid
-              var connection_payload = {
-                method: 'POST',
-                url: pushSrvc.SERVER_ROOT + "/connections",
-                headers: {
-                  'Content-Type':'application/json'
-                },
-                data: {
-                  'id': temp_uuid
-                }
-              };
-              console.log("requesting connection ID creation - sending ", connection_payload );
-			        $http( connection_payload )
-			  	      .success(
-			  		      function(data, status, headers, config) {
-			  		        // construct a outbound message
-			  		        var payload = {
-			  			        connection_id: data.id, // we have a connection uuid in data .id
-			  			        sender_id: vm.registrationId,
-			  			        message_id: temp_uuid,
-			  			        message_type: vm.MESSAGE_TYPE_ID.CONNECTION_REQUEST,
-			  			        sender_role: vm.role,
-			  			        payload: qrResult.text,
-			  			        payload_format_type: vm.MESSAGE_PAYLOAD_TYPE_ID.STRING
-			  		        };
-					          pushSrvc.sendPayload( payload ).then(function sentPayloadOkay(data){
-						          console.log('initial connection - sent, got', payload, data);
-                    }, function errorPayloadSend( error ) {
-						          console.log('initial connection - failed send, error', payload, error);
-					          });
-			  	        }).error( function(error) {
-			  		        // failed to get connection uuid from the server
-			  		        alert("Failed requesting a connection UUID.");
-		  		        });
-            }
-          }
-        },
-        function(error) {
-          console.log("error scanning",error);
-        },
-        {
-          showTorchButton: false,
-          saveHistory: false,
-          prompt: "Scan the Rescuer's Code"
-        }
-      );
+      connectionSrvc.startCodeScan(vm.uuid);
     };
 
     vm.handleInbound = function handleInbound( data ) {
@@ -225,9 +170,11 @@
         if (payload.message_type === vm.MESSAGE_TYPE_ID.MESSAGE) {
           // an inbound message
           alert(payload.payload.message);
+          //Experimental Automated Message Response, issue with this is that it'll trigger an infinite loop of messages
+          //Make Response function in connection service where it would send a message saying "X has read this!" when it receives a ping from another user
+          connectionSrvc.pingOther();
           return;
           // don't ack, at least on this version!
-
           vm.pendingMessage = payload.payload;
           // send a delivery ack before displaying
           var responsePayload = {
@@ -254,24 +201,7 @@
     };
 
     vm.pingOther = function pingOther() {
-      var responsePayload = {
-        connection_id: vm.uuid,
-        sender_id: vm.registrationId,
-        recipient_id: "/topics/" + vm.uuid,
-        message_id: uuid.v4(),
-        message_type: vm.MESSAGE_TYPE_ID.MESSAGE,
-        sender_role: vm.role,
-        payload: JSON.stringify( { "message" : "hello"} ),
-        payload_format_type: vm.MESSAGE_PAYLOAD_TYPE_ID.JSON
-      };
-      pushSrvc.sendPayload( responsePayload ).then( function sendPayloadOkay(indata) {
-        console.log('topic message '+responsePayload.message_id+' delivered okay.');
-
-      }, function failedSending(err) {
-        console.log('error sending '+responsePayload.message_id);
-        alert("Problem sending message.");
-      });
-
+      connectionSrvc.pingOther();
     };
 
     vm.switch = function()
