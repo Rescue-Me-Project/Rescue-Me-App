@@ -215,7 +215,7 @@
     };
 
     vm.pingOther = function pingOther() {
-      connectionSrvc.pingOther();
+      connectionSrvc.pingOther(vm.uuid);
     };
 
     vm.switch = function()

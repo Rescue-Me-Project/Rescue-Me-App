@@ -37,6 +37,7 @@
 
         var user = {};
         var role;
+        
         //MESSAGES
 
         service.MESSAGE_TYPE_ID = { 
@@ -57,7 +58,10 @@
             console.log("starting a QR code scan");
             user = userSrvc.getRole();
             role = user.role;
-            var temp_uuid = contact.UUID;
+            if(contact == false)
+              temp_uuid = uuid.v4();
+            else
+              var temp_uuid = contact.UUID;
             cordova.plugins.barcodeScanner.scan(
               function(qrResult) { // .text .format .cancelled
                 console.log("scanned",qrResult);
@@ -116,11 +120,17 @@
             );
         };
 
-        service.pingOther = function pingOther(contact) {
+        service.pingOther = function pingOther(UUID) {
+
+            if(role == undefined)
+            {
+              role = userSrvc.getRole();
+            }
+            
             var responsePayload = {
-              connection_id: contact.UUID,
+              connection_id: UUID,
               sender_id: regID,
-              recipient_id: "/topics/" + contact.UUID,
+              recipient_id: "/topics/" + UUID,
               message_id: uuid.v4(),
               message_type: service.MESSAGE_TYPE_ID.MESSAGE,
               sender_role: role,
