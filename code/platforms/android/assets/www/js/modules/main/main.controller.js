@@ -178,7 +178,7 @@
           
           //Experimental Automated Message Response, issue with this is that it'll trigger an infinite loop of messages
           //Make Response function in connection service where it would send a message saying "X has read this!" when it receives a ping from another user
-          connectionSrvc.pingReply();
+          connectionSrvc.pingReply(payload.connection_id);
           
           return;
           // don't ack, at least on this version!
@@ -205,7 +205,7 @@
           });
         }
 
-        if (payload.message_type === vm.MESSAGE_TYPE_ID.MESSAGE) {
+        if (payload.message_type === vm.MESSAGE_TYPE_ID.REPLY) {
           // a reply message
           alert(payload.payload.message);
           return;
