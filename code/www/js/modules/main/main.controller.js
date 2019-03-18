@@ -150,6 +150,8 @@
             payload: payload.payload,
             payload_format_type: vm.MESSAGE_PAYLOAD_TYPE_ID.STRING
           };
+          
+          //Initial Connection?
           pushSrvc.sendPayload( responsePayload ).then( function sendPayloadOkay(indata) {
             console.log('intial connection confirmation sent okay - got ',indata );
             vm.uuid = payload.connection_id;
@@ -164,15 +166,20 @@
           // this is the confirmation of the other user - message from line 185
           vm.uuid = payload.connection_id;
           // subscribe to this topic
-          pushSrvc.subscribe( vm.uuid );
+          pushSrvc.subscribe(vm.uuid);
         }
 
+        //LOOK HERE
+        //CREATE A NEW MESSAGE TYPE 5
+        //TRIGGERS A FUNCTION SIMILAR TO PINGOTHER CALL REPLYPING WHICH SENDS A PAYLOAD SAYING READ
         if (payload.message_type === vm.MESSAGE_TYPE_ID.MESSAGE) {
           // an inbound message
           alert(payload.payload.message);
+          
           //Experimental Automated Message Response, issue with this is that it'll trigger an infinite loop of messages
           //Make Response function in connection service where it would send a message saying "X has read this!" when it receives a ping from another user
-          connectionSrvc.pingOther();
+          connectionSrvc.pingReply();
+          
           return;
           // don't ack, at least on this version!
           vm.pendingMessage = payload.payload;
@@ -196,6 +203,12 @@
             console.log('error acknowledgeing '+responsePayload.message_id);
             alert("Problem acknowledgeing an inbound message.");
           });
+        }
+
+        if (payload.message_type === vm.MESSAGE_TYPE_ID.REPLY) {
+          // a reply message
+          alert(payload.payload.message);
+          return;
         }
       }
     };

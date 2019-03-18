@@ -44,7 +44,8 @@
             NACK : 1,
             CONNECTION_REQUEST: 2,
             CONNECTION_RESPONSE: 3,
-            MESSAGE: 4 };
+            MESSAGE: 4,
+            REPLY: 5 };
 
         service.MESSAGE_PAYLOAD_TYPE_ID = { 
             "STRING": 0,
@@ -135,6 +136,27 @@
             });
       
           };
+
+          service.pingReply = function pingReply(UUID) 
+          {
+            var responsePayload = {
+              connection_id: UUID,
+              sender_id: regID,
+              recipient_id: "/topics/" + UUID,
+              message_id: uuid.v4(),
+              message_type: service.MESSAGE_TYPE_ID.REPLY,
+              sender_role: role,
+              payload: JSON.stringify( { "message" : "I've read it!"} ),
+              payload_format_type: service.MESSAGE_PAYLOAD_TYPE_ID.JSON
+            };
+            pushSrvc.sendPayload( responsePayload ).then( function sendPayloadOkay(indata) {
+              console.log('topic message '+responsePayload.message_id+' delivered okay.');
+      
+            }, function failedSending(err) {
+              console.log('error sending '+responsePayload.message_id);
+              alert("Problem sending message.");
+            });
+          }
 
         return service;
     }
