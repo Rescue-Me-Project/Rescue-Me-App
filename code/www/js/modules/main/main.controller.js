@@ -65,7 +65,8 @@
 						               NACK : 1,
 						               CONNECTION_REQUEST: 2,
 						               CONNECTION_RESPONSE: 3,
-						               MESSAGE: 4 };
+                           MESSAGE: 4,
+                           REPLY : 5 };
     vm.MESSAGE_PAYLOAD_TYPE_ID = { "STRING": 0,
                                    "INTEGER": 1,
                                    "JSON": 2
