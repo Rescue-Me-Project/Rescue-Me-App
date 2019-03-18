@@ -124,7 +124,8 @@
 
             if(role == undefined)
             {
-              role = userSrvc.getRole();
+              var temp = userSrvc.getRole();
+              role = temp.role;
             }
             
             var responsePayload = {
