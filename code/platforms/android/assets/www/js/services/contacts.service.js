@@ -46,8 +46,9 @@
 
         service.getContactsArray = function(userRole){
             var result = [];
+            var allContacts = [];
             var rescueeContacts = [];
-            var rescueerContacts = [];
+            var rescuerContacts = [];
 
             var tempContacts = window.localStorage.getItem('Contacts');
             contactsLookUp = angular.fromJson(tempContacts);
@@ -60,22 +61,33 @@
                     var key = keys[index];
                     var obj = contactsLookUp[key];
                     if(obj.role == 0)
-                        rescueerContacts.push(obj);
+                    {
+                        rescuerContacts.push(obj);
+                        allContacts.push(obj);
+                    }
                     else if(obj.role == 1)
+                    {
                         rescueeContacts.push(obj);
+                        allContacts.push(obj);
+                    }
                     else
-                        result.push(obj);
+                        allContacts.push(obj);
                 }
 
-                if(userRole == 1)
+                if(userRole == 0)
                 {
                     result = [];
-                    result = rescueerContacts;
+                    result = rescuerContacts;
                 }
-                else if (userRole == 0)
+                else if (userRole == 1)
                 {
                     result = [];
                     result = rescueeContacts;
+                }
+                else
+                {
+                    result = [];
+                    result = allContacts;
                 }
 
                 return result;

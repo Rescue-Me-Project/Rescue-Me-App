@@ -28,7 +28,7 @@
 
         vm.pingOther = function pingOther()
         {
-            connectionSrvc.pingOther(vm.contact);
+            connectionSrvc.pingOther(vm.contact.UUID);
         }
 
         vm.done = function(){
