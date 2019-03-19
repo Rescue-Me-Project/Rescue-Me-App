@@ -29,7 +29,7 @@ angular.module('starter', [
       }
 
       // ADDED START
-      $state.go("contacts_detail");
+      $state.go("login");
       // ADDED END
 
     });
