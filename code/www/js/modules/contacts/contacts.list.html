@@ -1,9 +1,9 @@
 <ion-view style="background-color: #272733;" can-swipe-back="false">
 
     <ion-header-bar class="bar-dark" align-title="center">
-        <h1 ng-show = "vm.hasRole">Contacts - {{vm.ROLE_STRINGS[vm.otherRole]}} </h1>
+        <h1 ng-show = "vm.hasRole">Contacts - {{vm.ROLE_STRINGS[vm.otherRole]}}</h1>
 
-        <h1 ng-show = "!vm.hasRole" id="Contact_h1">All Contacts</h1>
+        <h1 ng-show = "!vm.hasRole">All Contacts</h1>
     </ion-header-bar>
 
     <ion-content class="has-header">
@@ -30,10 +30,10 @@
     <ion-footer-bar class="bar bar-dark bar-footer row" style="position:fixed; bottom:0px; padding: 0px;">
         <i class="col-20"></i>
         
-        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.addContact()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);" id="contact_buttons">
+        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.addContact()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
             Add Contacts
         </button>
-        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.switch()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);" id="contact_buttons">
+        <button class="button button-positive col" style="margin: 5px; color: white;" ng-click="vm.switch()" style="position: absolute; width: 50%; left: 50%; transform: translate(-50%,0%);">
             Switch to Main
         </button>
 
