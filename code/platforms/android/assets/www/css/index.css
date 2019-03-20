@@ -27,48 +27,6 @@ div#main.role1 {
 	background-color: green;
 }
 
-/* Login CSS styling */
-#login_Title{
-    margin-top: 10px;
-    font-size: 40px;
-}
-.Enter_Input{
-    padding:20px;
-}
-.Question_input{
-    margin:5px;
-    font-size:25px;
-    padding-bottom: 15px;
-}
-.has-header1{
-    margin-top: 150px;
-    background-color: lightblue;
-}
-#Btn_Continue{
-    height: 70px;
-    font-size: 40px;
-}
-.bar-dark{
-    height:70px;
-}
-/* Contact-List Css*/
-#Contact_h1{
-    margin-top: 10px;
-    font-size: 40px;
-    color: #E4E4E4;
-    margin-left: 200px;
-}
-#contact_buttons{
-    font-size: 20px;
-}
-
-/* Contact List css*/
-.title{
-    margin-top: 10px;
-    font-size: 40px;
-    color: #E4E4E4;
-    margin-left: 200px;
-}
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
