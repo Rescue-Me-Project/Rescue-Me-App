@@ -30,5 +30,4 @@
         <variable name="FCM_VERSION" value="11.0.1" />
     </plugin>
     <engine name="browser" spec="^5.0.4" />
-    <engine name="android" spec="^6.3.0" />
 </widget>
